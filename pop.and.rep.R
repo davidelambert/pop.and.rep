@@ -59,4 +59,4 @@ smallpop <- population %>%
            estimatesbase2010, starts_with("popestimate")
            ) %>% 
     `colnames<-`(gsub("popestimate", "", colnames(.))) %>% # shorten yearly est. column names
-   mutate(pct17 = `2017`/.[[1,14]]) 
+    mutate(pct17 = `2017`/.[[1,14]]) 
