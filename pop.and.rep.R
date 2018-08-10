@@ -60,3 +60,22 @@ smallpop <- population %>%
            ) %>% 
     `colnames<-`(gsub("popestimate", "", colnames(.))) %>% # shorten yearly est. column names
     mutate(pct17 = `2017`/.[[1,14]]) 
+
+## total number of electors per state
+## Data gathered from Wikipedia Article "Electoral College (United States)",
+## URL = https://en.wikipedia.org/wiki/Electoral_College_(United_States)
+## Accessed 10/08/2018 (MDY),
+## imported into Google Slides using IMPORTHTML(),
+## exported unmodified to CSV.
+electoralCollege <- read_csv("electoralCollege.csv", skip = 1) %>% 
+    slice(3:54) %>% 
+    select(X2, X36) %>% 
+    `colnames<-`(c("state", "electors"))
+electoralCollege$state[[1]] <- "United States"
+electoralCollege$state[[9]] <- "District of Columbia"
+electoralCollege$electors <- as.integer(electoralCollege$electors)
+electoralCollege$electors[[1]] <- 538L
+electoralCollege <- electoralCollege %>% 
+    mutate(pctElectors = `electors`/.[[1,2]])
+
+
