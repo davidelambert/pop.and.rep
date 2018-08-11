@@ -32,6 +32,7 @@ abbreviations <- read_tsv("stateAbbreviations.tsv", skip = 3,
 abbreviations$state[abbreviations$state == "United States of America"] <- "United States"
 
 
+
 ## Population data import from Census Bureau series NST-est2017
 population <- read_csv("nst-est2017-alldata.csv", 
                     col_names = TRUE, na = c("", "X", 0)) %>% 
@@ -53,13 +54,16 @@ population <- read_csv("nst-est2017-alldata.csv",
     merge(abbreviations, by = "state", sort = FALSE)
 
 
+
 ## drop birth, death, immigration, etc. columns from above
-smallpop <- population %>% 
+popSmall <- population %>% 
     select(state, ST, region, division, census2010pop,
            estimatesbase2010, starts_with("popestimate")
            ) %>% 
     `colnames<-`(gsub("popestimate", "", colnames(.))) %>% # shorten yearly est. column names
     mutate(pct17 = `2017`/.[[1,14]]) 
+
+
 
 ## total number of electors per state
 ## Data gathered from Wikipedia Article "Electoral College (United States)",
@@ -73,44 +77,83 @@ electoralCollege <- read_csv("electoralCollege.csv", skip = 1) %>%
     `colnames<-`(c("state", "electors"))
 electoralCollege$state[[1]] <- "United States"
 electoralCollege$state[[9]] <- "District of Columbia"
+electoralCollege <- merge(electoralCollege, abbreviations, by = "state", sort = FALSE)
 electoralCollege$electors <- as.integer(electoralCollege$electors)
 electoralCollege$electors[[1]] <- 538L
 electoralCollege <- electoralCollege %>% 
     mutate(pctElectors = `electors`/.[[1,2]])
 
+
+
 ## Redone Congress tibble w/ cleaner source dataset
 ## sourced from "unitedstates" GitHub collective account,
 ## URL: https://github.com/unitedstates/congress-legislators
-##
+## accessed 11-08-2018 (mdy)
 congress <- read_csv("legislators-current.csv") %>% 
     select(state, type, party, gender, birthday, last_name, first_name) %>% 
     `colnames<-`(c(
         "ST", "chamber", "party", "gender", "birthdate", "lastName", "firstName"
     )) %>% 
+    mutate(ST = factor(ST)) %>% 
     mutate(chamber = factor(chamber, labels = c("House", "Senate"))) %>% 
     mutate(party = factor(party)) %>% 
-    mutate(gender = factor(gender))
+    mutate(gender = factor(gender)) %>% 
+    filter(ST != "AS" &          # Removing non-voting members. Including DC
+               ST != "GU" &      # even though DC receives Electoral votes
+               ST != "DC" &      # so that obs. matches official tally.
+               ST != "MP" &
+               ST != "PR" &
+               ST != "VI"
+     )
 
 
-# ## 115th Congress make up and party affiliation
-# ## sourced from OpenDataSoft
-# ## URL: https://public.opendatasoft.com/explore/dataset/us-115th-congress-members/export/
-# ## Dropped URL & GIS data before import
-# congress <- read_delim("us-115th-congress-members.csv", delim = ";", skip = 1,
-#                        col_names = c(
-#                            "state", "stateCode", "districtCode", "name", "chamber", "party"
-#                        )
-#             ) %>% 
-#     mutate(chamber = factor(chamber, labels = c("House", "Senate"))) %>% 
-#     mutate(party = factor(party)) %>% 
-#     filter(state != "American Samoa" &
-#                state != "Guam" &
-#                state != "Northern Mariana Islands" &
-#                state != "Puerto Rico" &
-#                state != "Virgin Islands"
-#             )
-# 
-# 
+
+
+## The following discovers vacant seats in the House & inserts rows for those seats
+## into the "congress" dataset. Apportionment table gathered from Census Bureau
+## URL: https://www.census.gov/population/apportionment/data/2010_apportionment_results.html
+## Accessed 11-08-18 (mdy)
+##
+## NOTE: some of these seats may have been filled or had elections since
+## publication of the Congress table. GitHub reports Congress table was updated 31/07/2018.
+##
+## Gather counts of seated Representatives by state. Exclude DC b/c delegate is not apportioned.
+seatedReps <- congress %>% 
+    filter(chamber == "House" & ST != "DC") %>% 
+    group_by(ST) %>% 
+    summarise(seatsFilled = n())
+
+## Read in apportionments from 2010 Census, match to seatedReps, & tally mismatches
+unfilled <- read_excel("ApportionmentPopulation2010.xls", skip = 11, n_max = 50,
+                            col_names = c("state", "pop", "_", "seatsApportioned",
+                                          "-", "change")) %>% 
+    select(state, seatsApportioned) %>% 
+    merge(abbreviations, by = "state", sort = FALSE) %>% 
+    merge(seatedReps, by = "ST", sort = FALSE) %>% 
+    filter(seatsApportioned != seatsFilled)
+unfilled
+
+## Add rows for vacant seats
+congress <- congress %>% 
+    add_row(ST = "MI", chamber = "House", party = NA, gender = NA,
+            birthdate = NA, lastName = NA, firstName = NA) %>% 
+    add_row(ST = "NY", chamber = "House", party = NA, gender = NA,
+            birthdate = NA, lastName = NA, firstName = NA) %>% 
+    add_row(ST = "OH", chamber = "House", party = NA, gender = NA,
+            birthdate = NA, lastName = NA, firstName = NA) %>% 
+    add_row(ST = "OK", chamber = "House", party = NA, gender = NA,
+            birthdate = NA, lastName = NA, firstName = NA) %>% 
+    add_row(ST = "PA", chamber = "House", party = NA, gender = NA,
+            birthdate = NA, lastName = NA, firstName = NA) %>% 
+    add_row(ST = "PA", chamber = "House", party = NA, gender = NA,
+            birthdate = NA, lastName = NA, firstName = NA) 
+
+
+
+
+
+
+ 
 # reps <- congress %>% 
 #     filter(chamber == "House") %>% 
 #     group_by(state) %>% 
