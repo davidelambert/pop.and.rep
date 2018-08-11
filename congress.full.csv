@@ -1,0 +1,536 @@
+ST,chamber,party,gender,birthdate,last.name,first.name,state
+OH,Senate,Democrat,M,1952-11-09,Brown,Sherrod,Ohio
+OH,House,Republican,M,1970-03-01,Davidson,Warren,Ohio
+OH,House,Republican,M,1954-11-10,Johnson,Bill,Ohio
+OH,House,Republican,M,1957-03-17,Joyce,David,Ohio
+OH,House,Democrat,M,1973-07-16,Ryan,Tim,Ohio
+OH,House,Republican,M,1958-06-17,Wenstrup,Brad,Ohio
+OH,House,Democrat,F,1950-03-12,Beatty,Joyce,Ohio
+OH,House,Democrat,F,1952-10-29,Fudge,Marcia,Ohio
+OH,Senate,Republican,M,1955-12-19,Portman,Robert,Ohio
+OH,House,Republican,M,1956-04-18,Latta,Robert,Ohio
+OH,House,Republican,M,1965-03-24,Stivers,Steve,Ohio
+OH,House,Republican,M,1954-06-14,Gibbs,Bob,Ohio
+OH,House,Republican,M,1960-01-11,Turner,Michael,Ohio
+OH,House,Republican,M,1964-02-17,Jordan,Jim,Ohio
+OH,House,Republican,M,1953-01-22,Chabot,Steve,Ohio
+OH,House,Republican,M,1958-12-03,Renacci,James,Ohio
+OH,House,Democrat,F,1946-06-17,Kaptur,Marcy,Ohio
+WA,House,Republican,F,1978-11-03,Herrera Beutler,Jaime,Washington
+WA,House,Democrat,M,1965-06-15,Smith,Adam,Washington
+WA,House,Republican,F,1969-05-22,McMorris Rodgers,Cathy,Washington
+WA,Senate,Democrat,F,1958-10-13,Cantwell,Maria,Washington
+WA,Senate,Democrat,F,1950-10-11,Murray,Patty,Washington
+WA,House,Democrat,F,1965-09-21,Jayapal,Pramila,Washington
+WA,House,Republican,M,1950-08-29,Reichert,David,Washington
+WA,House,Democrat,M,1952-07-29,Heck,Denny,Washington
+WA,House,Democrat,F,1962-02-17,DelBene,Suzan,Washington
+WA,House,Democrat,M,1965-06-15,Larsen,Rick,Washington
+WA,House,Democrat,M,1974-01-01,Kilmer,Derek,Washington
+WA,House,Republican,M,1955-07-10,Newhouse,Dan,Washington
+MD,House,Democrat,M,1963-04-16,Delaney,John,Maryland
+MD,House,Democrat,M,1939-06-14,Hoyer,Steny,Maryland
+MD,House,Democrat,M,1962-12-13,Raskin,Jamie,Maryland
+MD,House,Democrat,M,1961-11-21,Brown,Anthony,Maryland
+MD,House,Republican,M,1957-01-25,Harris,Andy,Maryland
+MD,House,Democrat,M,1962-05-22,Sarbanes,John,Maryland
+MD,House,Democrat,M,1946-01-31,Ruppersberger,C.,Maryland
+MD,Senate,Democrat,M,1943-10-05,Cardin,Benjamin,Maryland
+MD,House,Democrat,M,1951-01-18,Cummings,Elijah,Maryland
+MD,Senate,Democrat,M,1959-01-10,Van Hollen,Chris,Maryland
+DE,Senate,Democrat,M,1947-01-23,Carper,Thomas,Delaware
+DE,Senate,Democrat,M,1963-09-09,Coons,Chris,Delaware
+DE,House,Democrat,F,1962-02-10,Blunt Rochester,Lisa,Delaware
+PA,House,Republican,M,1956-01-28,Barletta,Lou,Pennsylvania
+PA,House,Democrat,M,1954-05-16,Evans,Dwight,Pennsylvania
+PA,House,Democrat,M,1984-06-27,Lamb,Conor,Pennsylvania
+PA,House,Democrat,M,1945-04-07,Brady,Robert,Pennsylvania
+PA,House,Republican,M,1962-04-25,Rothfus,Keith,Pennsylvania
+PA,House,Republican,M,1962-05-27,Perry,Scott,Pennsylvania
+PA,Senate,Republican,M,1961-11-17,Toomey,Patrick,Pennsylvania
+PA,Senate,Democrat,M,1960-04-13,Casey,Robert,Pennsylvania
+PA,House,Republican,M,1961-01-10,Shuster,Bill,Pennsylvania
+PA,House,Republican,M,1964-01-23,Smucker,Lloyd,Pennsylvania
+PA,House,Republican,M,1976-09-07,Costello,Ryan,Pennsylvania
+PA,House,Republican,M,1952-08-15,Marino,Tom,Pennsylvania
+PA,House,Democrat,M,1961-05-01,Cartwright,Matthew,Pennsylvania
+PA,House,Democrat,M,1977-02-06,Boyle,Brendan,Pennsylvania
+PA,House,Republican,M,1973-12-17,Fitzpatrick,Brian,Pennsylvania
+PA,House,Republican,M,1959-07-27,Thompson,Glenn,Pennsylvania
+PA,House,Republican,M,1948-05-10,Kelly,Mike,Pennsylvania
+PA,House,Democrat,M,1953-08-05,Doyle,Michael,Pennsylvania
+TN,House,Republican,M,1962-10-11,Fleischmann,Charles,Tennessee
+TN,House,Republican,M,1966-10-08,Kustoff,David,Tennessee
+TN,House,Democrat,M,1954-06-19,Cooper,Jim,Tennessee
+TN,House,Republican,M,1964-02-21,DesJarlais,Scott,Tennessee
+TN,House,Democrat,M,1949-05-24,Cohen,Steve,Tennessee
+TN,Senate,Republican,M,1940-07-03,Alexander,Lamar,Tennessee
+TN,House,Republican,M,1945-07-21,Roe,David,Tennessee
+TN,House,Republican,M,1947-07-21,Duncan,John,Tennessee
+TN,House,Republican,F,1952-06-06,Blackburn,Marsha,Tennessee
+TN,House,Republican,F,1951-01-16,Black,Diane,Tennessee
+TN,Senate,Republican,M,1952-08-24,Corker,Bob,Tennessee
+CA,House,Democrat,F,1953-10-03,Bass,Karen,California
+CA,House,Democrat,M,1976-09-13,Khanna,Ro,California
+CA,House,Republican,M,1953-11-01,Issa,Darrell,California
+CA,House,Republican,M,1967-07-29,Denham,Jeff,California
+CA,House,Democrat,F,1947-12-21,Lofgren,Zoe,California
+CA,House,Democrat,F,1965-04-04,Torres,Norma,California
+CA,House,Democrat,F,1976-09-15,Barragán,Nanette,California
+CA,House,Democrat,M,1980-11-16,Swalwell,Eric,California
+CA,House,Democrat,M,1954-10-24,Sherman,Brad,California
+CA,House,Democrat,F,1944-09-25,Matsui,Doris,California
+CA,House,Republican,M,1953-06-08,Calvert,Ken,California
+CA,House,Democrat,M,1951-01-24,Thompson,Mike,California
+CA,House,Democrat,M,1969-10-01,Panetta,Jimmy,California
+CA,House,Democrat,F,1942-12-13,Eshoo,Anna,California
+CA,House,Democrat,M,1960-06-22,Schiff,Adam,California
+CA,House,Republican,M,1943-03-03,Cook,Paul,California
+CA,House,Democrat,M,1963-03-31,Cárdenas,Tony,California
+CA,House,Republican,M,1977-04-14,Valadao,David,California
+CA,House,Democrat,M,1965-03-02,Bera,Ami,California
+CA,House,Democrat,M,1945-01-24,Garamendi,John,California
+CA,House,Democrat,M,1941-03-08,Lowenthal,Alan,California
+CA,House,Republican,M,1976-12-07,Hunter,Duncan,California
+CA,Senate,Democrat,F,1964-10-20,Harris,Kamala,California
+CA,House,Republican,M,1947-06-21,Rohrabacher,Dana,California
+CA,House,Democrat,F,1938-08-15,Waters,Maxine,California
+CA,House,Democrat,M,1979-06-19,Aguilar,Pete,California
+CA,House,Democrat,M,1958-06-17,Peters,Scott,California
+CA,House,Republican,M,1966-12-17,Knight,Steve,California
+CA,House,Democrat,M,1958-01-24,Correa,J.,California
+CA,House,Republican,M,1965-01-26,McCarthy,Kevin,California
+CA,House,Democrat,F,1941-06-12,Roybal-Allard,Lucille,California
+CA,House,Republican,F,1962-05-14,Walters,Mimi,California
+CA,House,Republican,M,1973-10-01,Nunes,Devin,California
+CA,House,Democrat,M,1972-08-25,Ruiz,Raul,California
+CA,House,Democrat,M,1974-11-25,Gomez,Jimmy,California
+CA,House,Democrat,M,1964-02-18,Huffman,Jared,California
+CA,House,Democrat,M,1961-03-07,Vargas,Juan,California
+CA,House,Democrat,M,1952-04-13,Costa,Jim,California
+CA,House,Democrat,F,1953-07-07,Chu,Judy,California
+CA,House,Republican,M,1956-07-10,McClintock,Tom,California
+CA,House,Democrat,F,1940-03-26,Pelosi,Nancy,California
+CA,House,Democrat,F,1950-05-14,Speier,Jackie,California
+CA,House,Democrat,M,1951-06-18,McNerney,Jerry,California
+CA,House,Democrat,F,1946-07-16,Lee,Barbara,California
+CA,House,Democrat,F,1969-01-28,Sánchez,Linda,California
+CA,House,Republican,M,1951-10-12,Royce,Edward,California
+CA,House,Democrat,F,1944-04-13,Davis,Susan,California
+CA,House,Democrat,M,1952-03-31,DeSaulnier,Mark,California
+CA,House,Democrat,M,1964-11-18,Carbajal,Salud,California
+CA,House,Democrat,M,1960-12-10,Takano,Mark,California
+CA,House,Democrat,M,1969-03-29,Lieu,Ted,California
+CA,House,Democrat,F,1936-12-04,Napolitano,Grace,California
+CA,House,Democrat,F,1952-08-28,Brownley,Julia,California
+CA,House,Republican,M,1960-07-02,LaMalfa,Doug,California
+CA,Senate,Democrat,F,1933-06-22,Feinstein,Dianne,California
+UT,Senate,Republican,M,1971-06-04,Lee,Mike,Utah
+UT,House,Republican,M,1960-05-10,Curtis,John,Utah
+UT,House,Republican,M,1960-07-15,Stewart,Chris,Utah
+UT,House,Republican,M,1951-07-13,Bishop,Rob,Utah
+UT,House,Republican,F,1975-12-06,Love,Mia,Utah
+UT,Senate,Republican,M,1934-03-22,Hatch,Orrin,Utah
+MN,House,Republican,M,1965-05-14,Paulsen,Erik,Minnesota
+MN,House,Democrat,M,1944-06-29,Peterson,Collin,Minnesota
+MN,Senate,Democrat,F,1958-03-04,Smith,Tina,Minnesota
+MN,House,Democrat,M,1964-04-06,Walz,Timothy,Minnesota
+MN,House,Republican,M,1955-09-23,Lewis,Jason,Minnesota
+MN,House,Democrat,F,1954-07-12,McCollum,Betty,Minnesota
+MN,Senate,Democrat,F,1960-05-25,Klobuchar,Amy,Minnesota
+MN,House,Democrat,M,1943-12-17,Nolan,Richard,Minnesota
+MN,House,Democrat,M,1963-08-04,Ellison,Keith,Minnesota
+MN,House,Republican,M,1961-03-03,Emmer,Tom,Minnesota
+MO,House,Republican,M,1955-08-11,Long,Billy,Missouri
+MO,Senate,Democrat,F,1953-07-24,McCaskill,Claire,Missouri
+MO,House,Democrat,M,1944-10-26,Cleaver,Emanuel,Missouri
+MO,House,Republican,M,1963-11-07,Graves,Sam,Missouri
+MO,House,Democrat,M,1956-07-27,Clay,Wm.,Missouri
+MO,Senate,Republican,M,1950-01-10,Blunt,Roy,Missouri
+MO,House,Republican,M,1952-05-07,Luetkemeyer,Blaine,Missouri
+MO,House,Republican,F,1960-10-13,Hartzler,Vicky,Missouri
+MO,House,Republican,M,1980-06-16,Smith,Jason,Missouri
+MO,House,Republican,F,1962-09-13,Wagner,Ann,Missouri
+NJ,House,Democrat,M,1951-10-30,Pallone,Frank,New Jersey
+NJ,House,Republican,M,1946-05-12,LoBiondo,Frank,New Jersey
+NJ,House,Democrat,M,1975-03-08,Gottheimer,Josh,New Jersey
+NJ,House,Democrat,M,1937-01-25,Pascrell,Bill,New Jersey
+NJ,House,Democrat,F,1945-02-06,Watson Coleman,Bonnie,New Jersey
+NJ,Senate,Democrat,M,1954-01-01,Menéndez,Robert,New Jersey
+NJ,House,Democrat,M,1958-12-17,Payne,Donald,New Jersey
+NJ,House,Democrat,M,1951-01-26,Sires,Albio,New Jersey
+NJ,House,Republican,M,1960-10-16,MacArthur,Tom,New Jersey
+NJ,House,Republican,M,1946-04-29,Frelinghuysen,Rodney,New Jersey
+NJ,House,Republican,M,1952-06-25,Lance,Leonard,New Jersey
+NJ,Senate,Democrat,M,1969-04-27,Booker,Cory,New Jersey
+NJ,House,Democrat,M,1958-12-13,Norcross,Donald,New Jersey
+NJ,House,Republican,M,1953-03-04,Smith,Christopher,New Jersey
+FL,House,Democrat,F,1942-11-05,Wilson,Frederica,Florida
+FL,House,Republican,M,1949-04-27,Webster,Daniel,Florida
+FL,House,Democrat,F,1966-09-27,Wasserman Schultz,Debbie,Florida
+FL,House,Republican,M,1980-07-10,Mast,Brian,Florida
+FL,Senate,Republican,M,1971-05-28,Rubio,Marco,Florida
+FL,House,Republican,M,1963-02-08,Bilirakis,Gus,Florida
+FL,House,Democrat,F,1966-08-20,Castor,Kathy,Florida
+FL,House,Democrat,M,1948-09-21,Lawson,Al,Florida
+FL,House,Republican,M,1952-09-02,Rutherford,John,Florida
+FL,House,Republican,M,1961-09-25,Diaz-Balart,Mario,Florida
+FL,House,Republican,M,1959-10-18,Ross,Dennis,Florida
+FL,House,Democrat,M,1966-05-07,Deutch,Theodore,Florida
+FL,House,Democrat,M,1936-09-05,Hastings,Alcee,Florida
+FL,House,Republican,M,1980-03-01,Curbelo,Carlos,Florida
+FL,Senate,Democrat,M,1942-09-29,Nelson,Bill,Florida
+FL,House,Democrat,F,1948-05-16,Frankel,Lois,Florida
+FL,House,Republican,M,1953-12-04,Rooney,Francis,Florida
+FL,House,Republican,M,1947-12-18,Posey,Bill,Florida
+FL,House,Democrat,F,1957-03-12,Demings,Val,Florida
+FL,House,Republican,M,1970-11-21,Rooney,Thomas,Florida
+FL,House,Democrat,M,1978-02-25,Soto,Darren,Florida
+FL,House,Democrat,F,1978-09-16,Murphy,Stephanie,Florida
+FL,House,Republican,M,1955-04-13,Yoho,Ted,Florida
+FL,House,Democrat,M,1956-07-24,Crist,Charlie,Florida
+FL,House,Republican,M,1978-09-14,DeSantis,Ron,Florida
+FL,House,Republican,M,1951-05-08,Buchanan,Vern,Florida
+FL,House,Republican,F,1952-07-15,Ros-Lehtinen,Ileana,Florida
+FL,House,Republican,M,1982-05-07,Gaetz,Matt,Florida
+FL,House,Republican,M,1953-02-16,Dunn,Neal,Florida
+VT,House,Democrat,M,1947-05-02,Welch,Peter,Vermont
+VT,Senate,Democrat,M,1940-03-31,Leahy,Patrick,Vermont
+VT,Senate,Independent,M,1941-09-08,Sanders,Bernard,Vermont
+MI,House,Republican,M,1969-01-31,Huizenga,Bill,Michigan
+MI,Senate,Democrat,F,1950-04-29,Stabenow,Debbie,Michigan
+MI,Senate,Democrat,M,1958-12-01,Peters,Gary,Michigan
+MI,House,Republican,M,1961-05-08,Moolenaar,John,Michigan
+MI,House,Democrat,F,1953-11-23,Dingell,Debbie,Michigan
+MI,House,Republican,M,1980-04-18,Amash,Justin,Michigan
+MI,House,Democrat,F,1954-10-18,Lawrence,Brenda,Michigan
+MI,House,Republican,M,1953-04-23,Upton,Fred,Michigan
+MI,House,Democrat,M,1958-08-11,Kildee,Daniel,Michigan
+MI,House,Republican,M,1960-10-16,Trott,Dave,Michigan
+MI,House,Republican,M,1951-04-12,Walberg,Tim,Michigan
+MI,House,Republican,M,1947-02-02,Bergman,Jack,Michigan
+MI,House,Republican,M,1967-03-18,Bishop,Mike,Michigan
+MI,House,Republican,M,1961-05-08,Mitchell,Paul,Michigan
+MI,House,Democrat,M,1931-09-06,Levin,Sander,Michigan
+MT,Senate,Democrat,M,1956-08-21,Tester,Jon,Montana
+MT,House,Republican,M,1961-04-17,Gianforte,Greg,Montana
+MT,Senate,Republican,M,1962-08-20,Daines,Steve,Montana
+RI,Senate,Democrat,M,1949-11-12,Reed,John,Rhode Island
+RI,House,Democrat,M,1964-04-22,Langevin,James,Rhode Island
+RI,Senate,Democrat,M,1955-10-20,Whitehouse,Sheldon,Rhode Island
+RI,House,Democrat,M,1961-07-15,Cicilline,David,Rhode Island
+WY,Senate,Republican,M,1952-07-21,Barrasso,John,Wyoming
+WY,House,Republican,F,1966-07-28,Cheney,Liz,Wyoming
+WY,Senate,Republican,M,1944-02-01,Enzi,Michael,Wyoming
+MS,Senate,Republican,M,1951-07-05,Wicker,Roger,Mississippi
+MS,House,Republican,M,1966-03-01,Kelly,Trent,Mississippi
+MS,Senate,Republican,F,1959-05-10,Hyde-Smith,Cindy,Mississippi
+MS,House,Republican,M,1970-02-21,Palazzo,Steven,Mississippi
+MS,House,Democrat,M,1948-01-28,Thompson,Bennie,Mississippi
+MS,House,Republican,M,1956-06-01,Harper,Gregg,Mississippi
+ME,Senate,Republican,F,1952-12-07,Collins,Susan,Maine
+ME,House,Democrat,F,1955-04-02,Pingree,Chellie,Maine
+ME,Senate,Independent,M,1944-03-31,King,Angus,Maine
+ME,House,Republican,M,1953-11-01,Poliquin,Bruce,Maine
+TX,House,Republican,M,1955-03-22,Sessions,Pete,Texas
+TX,Senate,Republican,M,1952-02-02,Cornyn,John,Texas
+TX,House,Democrat,F,1950-01-12,Jackson Lee,Sheila,Texas
+TX,House,Democrat,M,1963-02-13,Vela,Filemon,Texas
+TX,House,Republican,M,1977-08-19,Hurd,Will,Texas
+TX,House,Democrat,M,1947-10-17,Green,Gene,Texas
+TX,House,Republican,M,1948-09-10,Poe,Ted,Texas
+TX,House,Democrat,M,1971-01-03,Veasey,Marc,Texas
+TX,House,Republican,M,1930-10-11,Johnson,Sam,Texas
+TX,House,Democrat,M,1947-09-01,Green,Al,Texas
+TX,House,Democrat,M,1946-10-06,Doggett,Lloyd,Texas
+TX,House,Republican,M,1953-08-18,Gohmert,Louie,Texas
+TX,House,Democrat,M,1972-09-26,O’Rourke,Beto,Texas
+TX,House,Republican,M,1948-06-11,Conaway,K.,Texas
+TX,House,Republican,M,1949-09-13,Williams,Roger,Texas
+TX,House,Republican,M,1958-07-15,Thornberry,Mac,Texas
+TX,House,Republican,M,1948-03-23,Babin,Brian,Texas
+TX,House,Republican,M,1950-12-23,Burgess,Michael,Texas
+TX,House,Democrat,F,1935-12-03,Johnson,Eddie,Texas
+TX,House,Republican,M,1941-11-06,Carter,John,Texas
+TX,House,Republican,M,1972-03-09,Arrington,Jodey,Texas
+TX,House,Republican,M,1962-01-14,McCaul,Michael,Texas
+TX,House,Republican,M,1975-05-13,Cloud,Michael,Texas
+TX,House,Republican,M,1954-02-25,Flores,Bill,Texas
+TX,House,Republican,M,1953-07-02,Weber,Randy,Texas
+TX,House,Democrat,M,1974-09-16,Castro,Joaquin,Texas
+TX,House,Republican,M,1955-04-11,Brady,Kevin,Texas
+TX,House,Republican,M,1949-09-15,Barton,Joe,Texas
+TX,House,Republican,M,1956-08-24,Culberson,John,Texas
+TX,House,Republican,M,1965-10-20,Ratcliffe,John,Texas
+TX,House,Democrat,M,1955-09-19,Cuellar,Henry,Texas
+TX,House,Republican,F,1943-01-18,Granger,Kay,Texas
+TX,House,Republican,M,1962-12-09,Olson,Pete,Texas
+TX,House,Republican,M,1951-02-23,Marchant,Kenny,Texas
+TX,House,Republican,M,1947-11-19,Smith,Lamar,Texas
+TX,House,Democrat,M,1967-09-04,Gonzalez,Vicente,Texas
+TX,House,Republican,M,1957-05-29,Hensarling,Jeb,Texas
+TX,Senate,Republican,M,1970-12-22,Cruz,Ted,Texas
+IL,House,Republican,M,1966-03-01,Hultgren,Randy,Illinois
+IL,House,Republican,M,1970-01-05,Davis,Rodney,Illinois
+IL,House,Democrat,M,1953-12-10,Gutiérrez,Luis,Illinois
+IL,House,Democrat,M,1961-08-20,Schneider,Bradley,Illinois
+IL,Senate,Democrat,M,1944-11-21,Durbin,Richard,Illinois
+IL,House,Republican,M,1960-12-30,Bost,Mike,Illinois
+IL,House,Democrat,M,1966-07-15,Lipinski,Daniel,Illinois
+IL,Senate,Democrat,F,1968-03-12,Duckworth,Tammy,Illinois
+IL,House,Republican,M,1961-09-13,Roskam,Peter,Illinois
+IL,House,Democrat,M,1955-10-07,Foster,Bill,Illinois
+IL,House,Republican,M,1968-07-05,LaHood,Darin,Illinois
+IL,House,Republican,M,1978-02-27,Kinzinger,Adam,Illinois
+IL,House,Democrat,F,1961-10-17,Bustos,Cheri,Illinois
+IL,House,Democrat,F,1944-05-26,Schakowsky,Janice,Illinois
+IL,House,Democrat,M,1946-11-23,Rush,Bobby,Illinois
+IL,House,Democrat,M,1958-10-17,Quigley,Mike,Illinois
+IL,House,Democrat,M,1973-07-19,Krishnamoorthi,Raja,Illinois
+IL,House,Democrat,M,1941-09-06,Davis,Danny,Illinois
+IL,House,Democrat,F,1956-04-30,Kelly,Robin,Illinois
+IL,House,Republican,M,1958-02-21,Shimkus,John,Illinois
+SC,House,Republican,M,1957-08-04,Rice,Tom,South Carolina
+SC,Senate,Republican,M,1965-09-19,Scott,Tim,South Carolina
+SC,House,Republican,M,1953-06-20,Norman,Ralph,South Carolina
+SC,House,Democrat,M,1940-07-21,Clyburn,James,South Carolina
+SC,House,Republican,M,1960-05-28,Sanford,Marshall,South Carolina
+SC,Senate,Republican,M,1955-07-09,Graham,Lindsey,South Carolina
+SC,House,Republican,M,1966-01-07,Duncan,Jeff,South Carolina
+SC,House,Republican,M,1964-08-22,Gowdy,Trey,South Carolina
+SC,House,Republican,M,1947-07-31,Wilson,Joe,South Carolina
+OK,House,Republican,M,1963-05-25,Russell,Steve,Oklahoma
+OK,Senate,Republican,M,1968-03-04,Lankford,James,Oklahoma
+OK,House,Republican,M,1960-01-06,Lucas,Frank,Oklahoma
+OK,House,Republican,M,1949-04-28,Cole,Tom,Oklahoma
+OK,House,Republican,M,1977-07-26,Mullin,Markwayne,Oklahoma
+OK,Senate,Republican,M,1934-11-17,Inhofe,James,Oklahoma
+KY,Senate,Republican,M,1942-02-20,McConnell,Mitch,Kentucky
+KY,House,Republican,M,1937-12-31,Rogers,Harold,Kentucky
+KY,Senate,Republican,M,1963-01-07,Paul,Rand,Kentucky
+KY,House,Republican,M,1964-02-18,Guthrie,Brett,Kentucky
+KY,House,Democrat,M,1947-11-04,Yarmuth,John,Kentucky
+KY,House,Republican,M,1973-07-24,Barr,Garland,Kentucky
+KY,House,Republican,M,1971-01-13,Massie,Thomas,Kentucky
+KY,House,Republican,M,1972-08-19,Comer,James,Kentucky
+OR,House,Democrat,M,1948-08-16,Blumenauer,Earl,Oregon
+OR,Senate,Democrat,M,1949-05-03,Wyden,Ron,Oregon
+OR,House,Democrat,M,1947-05-27,DeFazio,Peter,Oregon
+OR,Senate,Democrat,M,1956-10-24,Merkley,Jeff,Oregon
+OR,House,Democrat,M,1951-10-19,Schrader,Kurt,Oregon
+OR,House,Democrat,F,1954-10-14,Bonamici,Suzanne,Oregon
+OR,House,Republican,M,1957-01-10,Walden,Greg,Oregon
+ID,Senate,Republican,M,1943-05-03,Risch,James,Idaho
+ID,House,Republican,M,1950-09-08,Simpson,Michael,Idaho
+ID,House,Republican,M,1967-12-08,Labrador,Raúl,Idaho
+ID,Senate,Republican,M,1951-05-20,Crapo,Michael,Idaho
+KS,House,Republican,M,1956-07-19,Estes,Ron,Kansas
+KS,House,Republican,M,1960-08-09,Marshall,Roger,Kansas
+KS,House,Republican,M,1976-01-08,Yoder,Kevin,Kansas
+KS,House,Republican,F,1963-06-10,Jenkins,Lynn,Kansas
+KS,Senate,Republican,M,1936-04-20,Roberts,Pat,Kansas
+KS,Senate,Republican,M,1954-05-29,Moran,Jerry,Kansas
+NH,House,Democrat,F,1956-09-05,Kuster,Ann,New Hampshire
+NH,Senate,Democrat,F,1958-02-27,Hassan,Margaret,New Hampshire
+NH,House,Democrat,F,1952-12-02,Shea-Porter,Carol,New Hampshire
+NH,Senate,Democrat,F,1947-01-28,Shaheen,Jeanne,New Hampshire
+NM,Senate,Democrat,M,1971-10-17,Heinrich,Martin,New Mexico
+NM,Senate,Democrat,M,1948-05-18,Udall,Tom,New Mexico
+NM,House,Democrat,M,1972-06-07,Luján,Ben,New Mexico
+NM,House,Democrat,F,1959-10-24,Lujan Grisham,Michelle,New Mexico
+NM,House,Republican,M,1947-08-24,Pearce,Stevan,New Mexico
+VA,House,Republican,M,1958-03-15,Griffith,H.,Virginia
+VA,Senate,Democrat,M,1958-02-26,Kaine,Timothy,Virginia
+VA,House,Republican,M,1952-09-22,Goodlatte,Bob,Virginia
+VA,House,Republican,M,1972-03-27,Garrett,Thomas,Virginia
+VA,House,Democrat,M,1947-04-30,Scott,Robert,Virginia
+VA,House,Democrat,M,1950-06-20,Beyer,Donald,Virginia
+VA,House,Democrat,M,1950-03-30,Connolly,Gerald,Virginia
+VA,Senate,Democrat,M,1954-12-15,Warner,Mark,Virginia
+VA,House,Republican,M,1979-06-27,Taylor,Scott,Virginia
+VA,House,Democrat,M,1961-10-10,McEachin,A.,Virginia
+VA,House,Republican,F,1959-06-30,Comstock,Barbara,Virginia
+VA,House,Republican,M,1964-07-27,Brat,David,Virginia
+VA,House,Republican,M,1959-02-03,Wittman,Robert,Virginia
+NY,House,Democrat,M,1943-10-24,Serrano,José,New York
+NY,House,Democrat,F,1953-03-28,Velázquez,Nydia,New York
+NY,House,Democrat,F,1946-02-19,Maloney,Carolyn,New York
+NY,House,Democrat,F,1964-11-21,Clarke,Yvette,New York
+NY,Senate,Democrat,M,1950-11-23,Schumer,Charles,New York
+NY,House,Democrat,M,1962-08-31,Suozzi,Thomas,New York
+NY,House,Republican,M,1956-11-06,Donovan,Daniel,New York
+NY,House,Democrat,F,1937-07-05,Lowey,Nita,New York
+NY,House,Democrat,M,1954-09-27,Espaillat,Adriano,New York
+NY,House,Republican,F,1984-07-02,Stefanik,Elise,New York
+NY,House,Democrat,M,1947-02-18,Engel,Eliot,New York
+NY,House,Republican,F,1961-02-04,Tenney,Claudia,New York
+NY,House,Democrat,M,1966-07-30,Maloney,Sean,New York
+NY,House,Democrat,M,1953-09-25,Meeks,Gregory,New York
+NY,House,Republican,M,1950-05-20,Collins,Chris,New York
+NY,House,Republican,M,1952-08-25,Faso,John,New York
+NY,House,Democrat,F,1965-02-15,Rice,Kathleen,New York
+NY,Senate,Democrat,F,1966-12-09,Gillibrand,Kirsten,New York
+NY,House,Democrat,M,1962-03-16,Crowley,Joseph,New York
+NY,House,Democrat,M,1949-06-18,Tonko,Paul,New York
+NY,House,Republican,M,1971-11-18,Reed,Tom,New York
+NY,House,Democrat,M,1970-08-04,Jeffries,Hakeem,New York
+NY,House,Democrat,M,1947-06-13,Nadler,Jerrold,New York
+NY,House,Republican,M,1962-11-09,Katko,John,New York
+NY,House,Republican,M,1980-01-30,Zeldin,Lee,New York
+NY,House,Republican,M,1944-04-05,King,Peter,New York
+NY,House,Democrat,M,1959-10-06,Higgins,Brian,New York
+NY,House,Democrat,F,1975-10-01,Meng,Grace,New York
+WV,House,Republican,M,1947-03-28,McKinley,David,West Virginia
+WV,House,Republican,M,1971-06-05,Mooney,Alex,West Virginia
+WV,House,Republican,M,1960-09-12,Jenkins,Evan,West Virginia
+WV,Senate,Republican,F,1953-11-26,Capito,Shelley,West Virginia
+WV,Senate,Democrat,M,1947-08-24,Manchin,Joe,West Virginia
+AL,House,Republican,M,1954-05-14,Palmer,Gary,Alabama
+AL,House,Republican,M,1958-07-16,Rogers,Mike,Alabama
+AL,House,Republican,M,1965-07-22,Aderholt,Robert,Alabama
+AL,House,Democrat,F,1965-01-01,Sewell,Terri,Alabama
+AL,House,Republican,M,1955-02-16,Byrne,Bradley,Alabama
+AL,Senate,Republican,M,1934-05-06,Shelby,Richard,Alabama
+AL,House,Republican,F,1976-07-27,Roby,Martha,Alabama
+AL,Senate,Democrat,M,1954-05-04,Jones,Doug,Alabama
+AL,House,Republican,M,1954-04-29,Brooks,Mo,Alabama
+WI,House,Democrat,M,1964-08-14,Pocan,Mark,Wisconsin
+WI,House,Republican,M,1970-01-29,Ryan,Paul,Wisconsin
+WI,Senate,Democrat,F,1962-02-11,Baldwin,Tammy,Wisconsin
+WI,House,Republican,M,1971-10-03,Duffy,Sean,Wisconsin
+WI,Senate,Republican,M,1955-04-08,Johnson,Ron,Wisconsin
+WI,House,Republican,M,1943-06-14,Sensenbrenner,F.,Wisconsin
+WI,House,Democrat,F,1951-04-18,Moore,Gwen,Wisconsin
+WI,House,Republican,M,1955-07-03,Grothman,Glenn,Wisconsin
+WI,House,Democrat,M,1963-03-16,Kind,Ron,Wisconsin
+WI,House,Republican,M,1984-03-03,Gallagher,Mike,Wisconsin
+CO,House,Republican,M,1954-05-24,Lamborn,Doug,Colorado
+CO,House,Republican,M,1955-03-19,Coffman,Mike,Colorado
+CO,House,Democrat,M,1953-05-01,Perlmutter,Ed,Colorado
+CO,House,Democrat,F,1957-07-29,DeGette,Diana,Colorado
+CO,House,Republican,M,1959-02-16,Buck,Ken,Colorado
+CO,Senate,Republican,M,1974-08-22,Gardner,Cory,Colorado
+CO,House,Democrat,M,1975-05-12,Polis,Jared,Colorado
+CO,House,Republican,M,1956-11-09,Tipton,Scott,Colorado
+CO,Senate,Democrat,M,1964-11-28,Bennet,Michael,Colorado
+GA,House,Republican,F,1962-04-18,Handel,Karen,Georgia
+GA,House,Democrat,M,1947-02-04,Bishop,Sanford,Georgia
+GA,House,Republican,M,1951-11-07,Allen,Rick,Georgia
+GA,Senate,Republican,M,1944-12-28,Isakson,John,Georgia
+GA,House,Republican,M,1970-02-11,Woodall,Rob,Georgia
+GA,House,Democrat,M,1954-10-02,Johnson,Henry,Georgia
+GA,House,Republican,M,1970-02-03,Graves,Tom,Georgia
+GA,House,Republican,M,1960-04-22,Hice,Jody,Georgia
+GA,House,Republican,M,1963-12-22,Loudermilk,Barry,Georgia
+GA,House,Republican,M,1969-12-10,Scott,Austin,Georgia
+GA,House,Democrat,M,1940-02-21,Lewis,John,Georgia
+GA,House,Republican,M,1966-08-16,Collins,Doug,Georgia
+GA,House,Democrat,M,1945-06-27,Scott,David,Georgia
+GA,House,Republican,M,1957-09-06,Carter,Buddy,Georgia
+GA,Senate,Republican,M,1949-12-10,Perdue,David,Georgia
+GA,House,Republican,M,1967-11-15,Ferguson,A.,Georgia
+CT,House,Democrat,M,1953-04-06,Courtney,Joe,Connecticut
+CT,House,Democrat,F,1959-08-25,Esty,Elizabeth,Connecticut
+CT,Senate,Democrat,M,1946-02-13,Blumenthal,Richard,Connecticut
+CT,House,Democrat,F,1943-03-02,DeLauro,Rosa,Connecticut
+CT,House,Democrat,M,1966-07-05,Himes,James,Connecticut
+CT,House,Democrat,M,1948-07-22,Larson,John,Connecticut
+CT,Senate,Democrat,M,1973-08-03,Murphy,Christopher,Connecticut
+AR,Senate,Republican,M,1977-05-13,Cotton,Tom,Arkansas
+AR,House,Republican,M,1956-12-05,Hill,French,Arkansas
+AR,House,Republican,M,1967-11-18,Westerman,Bruce,Arkansas
+AR,House,Republican,M,1966-01-22,Crawford,Eric,Arkansas
+AR,Senate,Republican,M,1950-12-10,Boozman,John,Arkansas
+AR,House,Republican,M,1957-02-18,Womack,Steve,Arkansas
+IN,House,Republican,F,1963-08-17,Walorski,Jackie,Indiana
+IN,House,Democrat,M,1949-08-13,Visclosky,Peter,Indiana
+IN,House,Republican,M,1969-02-27,Messer,Luke,Indiana
+IN,House,Republican,M,1983-09-12,Hollingsworth,Trey,Indiana
+IN,House,Democrat,M,1974-10-16,Carson,André,Indiana
+IN,House,Republican,M,1970-02-09,Rokita,Todd,Indiana
+IN,House,Republican,F,1960-08-25,Brooks,Susan,Indiana
+IN,House,Republican,M,1962-05-31,Bucshon,Larry,Indiana
+IN,Senate,Republican,M,1972-08-24,Young,Todd,Indiana
+IN,Senate,Democrat,M,1955-09-28,Donnelly,Joe,Indiana
+IN,House,Republican,M,1979-07-16,Banks,Jim,Indiana
+NC,House,Republican,F,1943-06-29,Foxx,Virginia,North Carolina
+NC,House,Republican,M,1969-05-20,Walker,Mark,North Carolina
+NC,House,Republican,M,1948-08-15,Pittenger,Robert,North Carolina
+NC,House,Republican,M,1968-04-17,Holding,George,North Carolina
+NC,Senate,Republican,M,1960-08-30,Tillis,Thom,North Carolina
+NC,House,Republican,M,1975-10-22,McHenry,Patrick,North Carolina
+NC,House,Republican,M,1972-02-16,Rouzer,David,North Carolina
+NC,House,Democrat,M,1947-04-27,Butterfield,George,North Carolina
+NC,House,Republican,M,1971-10-21,Budd,Ted,North Carolina
+NC,House,Republican,M,1943-02-10,Jones,Walter,North Carolina
+NC,House,Democrat,F,1946-05-27,Adams,Alma,North Carolina
+NC,House,Republican,M,1971-11-04,Hudson,Richard,North Carolina
+NC,Senate,Republican,M,1955-11-30,Burr,Richard,North Carolina
+NC,House,Democrat,M,1940-08-17,Price,David,North Carolina
+NC,House,Republican,M,1959-07-28,Meadows,Mark,North Carolina
+MA,House,Democrat,M,1949-02-14,Neal,Richard,Massachusetts
+MA,House,Democrat,M,1980-10-04,Kennedy,Joseph,Massachusetts
+MA,House,Democrat,M,1978-10-24,Moulton,Seth,Massachusetts
+MA,Senate,Democrat,M,1946-07-11,Markey,Edward,Massachusetts
+MA,House,Democrat,F,1963-07-17,Clark,Katherine,Massachusetts
+MA,House,Democrat,M,1955-03-31,Lynch,Stephen,Massachusetts
+MA,House,Democrat,M,1952-09-06,Keating,William,Massachusetts
+MA,House,Democrat,M,1952-01-09,Capuano,Michael,Massachusetts
+MA,House,Democrat,F,1946-04-26,Tsongas,Niki,Massachusetts
+MA,Senate,Democrat,F,1949-06-22,Warren,Elizabeth,Massachusetts
+MA,House,Democrat,M,1959-11-20,McGovern,James,Massachusetts
+LA,House,Republican,M,1965-10-06,Scalise,Steve,Louisiana
+LA,Senate,Republican,M,1957-09-28,Cassidy,Bill,Louisiana
+LA,House,Republican,M,1972-01-30,Johnson,Mike,Louisiana
+LA,House,Republican,M,1961-08-24,Higgins,Clay,Louisiana
+LA,Senate,Republican,M,1951-11-21,Kennedy,John,Louisiana
+LA,House,Republican,M,1954-09-16,Abraham,Ralph,Louisiana
+LA,House,Republican,M,1972-01-31,Graves,Garret,Louisiana
+LA,House,Democrat,M,1973-09-13,Richmond,Cedric,Louisiana
+AZ,House,Democrat,M,1979-11-20,Gallego,Ruben,Arizona
+AZ,House,Republican,F,1958-11-14,Lesko,Debbie,Arizona
+AZ,House,Republican,M,1962-03-03,Schweikert,David,Arizona
+AZ,House,Republican,M,1958-11-07,Biggs,Andy,Arizona
+AZ,House,Democrat,F,1976-07-12,Sinema,Kyrsten,Arizona
+AZ,Senate,Republican,M,1962-12-31,Flake,Jeff,Arizona
+AZ,House,Democrat,M,1946-01-24,O’Halleran,Tom,Arizona
+AZ,House,Democrat,M,1948-02-19,Grijalva,Raúl,Arizona
+AZ,Senate,Republican,M,1936-08-29,McCain,John,Arizona
+AZ,House,Republican,F,1966-03-22,McSally,Martha,Arizona
+AZ,House,Republican,M,1958-11-22,Gosar,Paul,Arizona
+NE,House,Republican,M,1970-12-19,Smith,Adrian,Nebraska
+NE,House,Republican,M,1960-12-27,Fortenberry,Jeff,Nebraska
+NE,Senate,Republican,M,1972-02-22,Sasse,Benjamin,Nebraska
+NE,Senate,Republican,F,1951-03-01,Fischer,Deb,Nebraska
+NE,House,Republican,M,1963-08-16,Bacon,Don,Nebraska
+IA,House,Republican,M,1955-04-26,Blum,Rod,Iowa
+IA,Senate,Republican,F,1970-07-01,Ernst,Joni,Iowa
+IA,House,Republican,M,1968-05-11,Young,David,Iowa
+IA,Senate,Republican,M,1933-09-17,Grassley,Charles,Iowa
+IA,House,Democrat,M,1952-12-23,Loebsack,David,Iowa
+IA,House,Republican,M,1949-05-28,King,Steve,Iowa
+HI,Senate,Democrat,F,1947-11-03,Hirono,Mazie,Hawaii
+HI,Senate,Democrat,M,1972-10-20,Schatz,Brian,Hawaii
+HI,House,Democrat,F,1981-04-12,Gabbard,Tulsi,Hawaii
+HI,House,Democrat,F,1951-05-04,Hanabusa,Colleen,Hawaii
+ND,Senate,Republican,M,1957-03-13,Hoeven,John,North Dakota
+ND,House,Republican,M,1961-01-21,Cramer,Kevin,North Dakota
+ND,Senate,Democrat,F,1955-10-30,Heitkamp,Heidi,North Dakota
+AK,Senate,Republican,M,1964-11-13,Sullivan,Dan,Alaska
+AK,Senate,Republican,F,1957-05-22,Murkowski,Lisa,Alaska
+AK,House,Republican,M,1933-06-09,Young,Don,Alaska
+SD,Senate,Republican,M,1954-10-24,Rounds,Mike,South Dakota
+SD,House,Republican,F,1971-11-30,Noem,Kristi,South Dakota
+SD,Senate,Republican,M,1961-01-07,Thune,John,South Dakota
+NV,Senate,Democrat,F,1964-03-29,Cortez Masto,Catherine,Nevada
+NV,House,Democrat,F,1950-05-23,Titus,Dina,Nevada
+NV,House,Republican,M,1958-06-12,Amodei,Mark,Nevada
+NV,House,Democrat,F,1957-08-02,Rosen,Jacky,Nevada
+NV,House,Democrat,M,1980-04-25,Kihuen,Ruben,Nevada
+NV,Senate,Republican,M,1960-05-10,Heller,Dean,Nevada
+MI,House,NA,NA,NA,NA,NA,NA
+NY,House,NA,NA,NA,NA,NA,NA
+OH,House,NA,NA,NA,NA,NA,NA
+OK,House,NA,NA,NA,NA,NA,NA
+PA,House,NA,NA,NA,NA,NA,NA
+PA,House,NA,NA,NA,NA,NA,NA
