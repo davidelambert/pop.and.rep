@@ -1,26 +1,15 @@
 library(tidyverse)
 library(readxl)
 
-## Narrower version than "population" imported from TSV below.
-## Preserved for posterity, especially for gsub() example
-# pop.xls <- read_excel("nst-est2017-01.xlsx", 
-#                       skip = 4,  n_max = 58,
-#                       col_names = c("stateRegion", "census", "estimatesBase",
-#                         "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017"
-#                      ))
-# pop.xls <- pop.xls[-57,] # drop empty row before PR
-# pop.xls$stateRegion <- gsub("[.]", "", pop.xls$stateRegion) # remove periods before state names
-
-
-
-## Abbreviations to be merged into "population" set imported below.
+## ABBREVIATIONS =============================================================================
+##
+## Abbreviations to be merged into other tables  below.
 ## Data gathered from Wikipedia article "List of US State Abbrevations",
 ## URL = https://en.wikipedia.org/wiki/List_of_U.S._state_abbreviations
 ## Accessed 10/08/2018 (MDY),
 ## imported into Google Slides using IMPORTHTML(),
 ## exported unmodified to TSV.
 ##
-## Extracting
 abbreviations <- read_tsv("stateAbbreviations.tsv", skip = 3,
                           col_names = c(
                               "state", "type", "ISO", "ST", "numeric", "USPS",
@@ -32,7 +21,12 @@ abbreviations$state[abbreviations$state == "United States of America"] <- "Unite
 
 
 
+
+
+## POPULATION ================================================================================
+##
 ## Population data import from Census Bureau series NST-est2017
+##
 population <- read_csv("nst-est2017-alldata.csv", 
                     col_names = TRUE, na = c("", "X", 0)) %>% 
     `colnames<-`(tolower(colnames(.))) %>% 
@@ -53,41 +47,52 @@ population <- read_csv("nst-est2017-alldata.csv",
     merge(abbreviations, by = "state", sort = FALSE)
 
 
-
 ## drop birth, death, immigration, etc. columns from above
+##
 population.small <- population %>% 
     select(state, ST, region, division, census2010pop,
            estimatesbase2010, starts_with("popestimate")
            ) %>% 
-    `colnames<-`(gsub("popestimate", "", colnames(.))) %>% # shorten yearly est. column names
-    mutate(pct17 = `2017`/.[[1,14]]) 
+    `colnames<-`(gsub("popestimate", "pop.", colnames(.))) %>% # shorten yearly est. column names
+    mutate(pct.pop.2017 = `pop.2017`/.[[1,14]]) 
 
 
 
+
+
+## ELECTORS ==================================================================================
+##
 ## total number of electors per state
 ## Data gathered from Wikipedia Article "Electoral College (United States)",
 ## URL = https://en.wikipedia.org/wiki/Electoral_College_(United_States)
 ## Accessed 10/08/2018 (MDY),
 ## imported into Google Slides using IMPORTHTML(),
 ## exported unmodified to CSV.
+##
 electoral.college <- read_csv("electoralCollege.csv", skip = 1) %>% 
     slice(3:54) %>% 
     select(X2, X36) %>% 
-    `colnames<-`(c("state", "electors"))
+    `colnames<-`(c("state", "electors")) 
 electoral.college$state[[1]] <- "United States"
 electoral.college$state[[9]] <- "District of Columbia"
 electoral.college <- merge(electoral.college, abbreviations, by = "state", sort = FALSE)
 electoral.college$electors <- as.integer(electoral.college$electors)
 electoral.college$electors[[1]] <- 538L
 electoral.college <- electoral.college %>% 
-    mutate(pctElectors = `electors`/.[[1,2]])
+    mutate(pct.electors = `electors`/.[[1,2]]) %>% 
+    select(state, electors, pct.electors)
 
 
 
+
+
+## CONGRESS ==================================================================================
+##
 ## Redone Congress tibble w/ cleaner source dataset
 ## sourced from "unitedstates" GitHub collective account,
 ## URL: https://github.com/unitedstates/congress-legislators
 ## accessed 11-08-2018 (mdy)
+##
 congress <- read_csv("legislators-current.csv") %>% 
     select(state, type, party, gender, birthday, last_name, first_name) %>% 
     `colnames<-`(c(
@@ -103,8 +108,8 @@ congress <- read_csv("legislators-current.csv") %>%
                ST != "MP" &
                ST != "PR" &
                ST != "VI"
-     )
-
+     ) %>% 
+    merge(abbreviations, by = "ST", sort = FALSE)
 
 
 
@@ -117,12 +122,14 @@ congress <- read_csv("legislators-current.csv") %>%
 ## publication of the Congress table. GitHub reports Congress table was updated 31/07/2018.
 ##
 ## Gather counts of seated Representatives by state. Exclude DC b/c delegate is not apportioned.
+##
 seated.reps <- congress %>% 
     filter(chamber == "House") %>% 
     group_by(ST) %>% 
     summarise(seats.filled = n())
 
 ## Read in apportionments from 2010 Census, match to seated.reps, & tally mismatches
+##
 unfilled <- read_excel("ApportionmentPopulation2010.xls", skip = 11, n_max = 50,
                             col_names = c("state", "pop", "_", "seats.apportioned",
                                           "-", "change")) %>% 
@@ -133,6 +140,7 @@ unfilled <- read_excel("ApportionmentPopulation2010.xls", skip = 11, n_max = 50,
 unfilled
 
 ## Add rows for vacant seats
+##
 congress <- congress %>% 
     add_row(ST = "MI", chamber = "House", party = NA, gender = NA,
             birthdate = NA, last.name = NA, first.name = NA) %>% 
@@ -149,8 +157,11 @@ congress <- congress %>%
 
 
 
+## TALLY =====================================================================================
+##
 ## Tallies each State's Congressional delegation by party & chamber.
 ## First line create table to reference in subsequent left_join() commands.
+##
 congress.tallies <- congress               
 congress.tallies <- congress.tallies %>% 
     group_by(ST) %>%                       # These two lines collapse the membership
@@ -197,18 +208,39 @@ congress.tallies <- congress.tallies %>%
         )
 congress.tallies <- replace(congress.tallies, is.na(congress.tallies), 0)
 
-## Add totals & fractions
+## Add totals & fractions. Folding Independents into Dems since Sanders & King causes Dem.
+##
 congress.tallies <- congress.tallies %>% 
     mutate(total.house = house.republicans +
                         house.democrats +
                         house.vacancies
           ) %>% 
     mutate(total.delegation = total.house + 2) %>% 
+    mutate(total.women =  house.women + senate.women) %>% 
     mutate(total.republican.pct =
                (house.republicans+senate.republicans)/total.delegation) %>% 
-    mutate(total.democrat.pct =
-               (house.democrats+senate.democrats)/total.delegation) %>% 
-    mutate(total.independent.pct =
-               (senate.independents)/total.delegation) %>% 
-    mutate(total.women =  house.women + senate.women) %>% 
+    mutate(total.dem.ind.pct =
+               (house.democrats+senate.democrats+senate.independents)/total.delegation) %>% 
     mutate(total.women.pct = total.women/total.delegation)
+
+
+
+## MERGE =====================================================================================
+##
+## Merge tables into grand table for analysis
+##
+pop.and.rep <- population.small %>% 
+    merge(congress.tallies, by = "ST", sort = FALSE, all = TRUE) %>% 
+    merge(electoral.college, by = "state", sort = FALSE, all = TRUE)
+## Reorder for relevance
+pop.and.rep <- pop.and.rep[c(1:4,14,15,30,31,25,27,28,26,29,5:13,16:24)]
+
+
+
+## EXPORT ====================================================================================
+
+saveRDS(pop.and.rep, "pop.and.rep.rds")
+write_csv(pop.and.rep, "pop.and.rep.csv")
+
+saveRDS(congress, "congress.full.rds")
+write_csv(congress, "congress.full.csv")
