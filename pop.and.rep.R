@@ -56,7 +56,7 @@ population <- read_csv("nst-est2017-alldata.csv",
 
 
 ## drop birth, death, immigration, etc. columns from above
-popSmall <- population %>% 
+population.small <- population %>% 
     select(state, ST, region, division, census2010pop,
            estimatesbase2010, starts_with("popestimate")
            ) %>% 
@@ -71,16 +71,16 @@ popSmall <- population %>%
 ## Accessed 10/08/2018 (MDY),
 ## imported into Google Slides using IMPORTHTML(),
 ## exported unmodified to CSV.
-electoralCollege <- read_csv("electoralCollege.csv", skip = 1) %>% 
+electoral.college <- read_csv("electoralCollege.csv", skip = 1) %>% 
     slice(3:54) %>% 
     select(X2, X36) %>% 
     `colnames<-`(c("state", "electors"))
-electoralCollege$state[[1]] <- "United States"
-electoralCollege$state[[9]] <- "District of Columbia"
-electoralCollege <- merge(electoralCollege, abbreviations, by = "state", sort = FALSE)
-electoralCollege$electors <- as.integer(electoralCollege$electors)
-electoralCollege$electors[[1]] <- 538L
-electoralCollege <- electoralCollege %>% 
+electoral.college$state[[1]] <- "United States"
+electoral.college$state[[9]] <- "District of Columbia"
+electoral.college <- merge(electoral.college, abbreviations, by = "state", sort = FALSE)
+electoral.college$electors <- as.integer(electoral.college$electors)
+electoral.college$electors[[1]] <- 538L
+electoral.college <- electoral.college %>% 
     mutate(pctElectors = `electors`/.[[1,2]])
 
 
@@ -92,7 +92,7 @@ electoralCollege <- electoralCollege %>%
 congress <- read_csv("legislators-current.csv") %>% 
     select(state, type, party, gender, birthday, last_name, first_name) %>% 
     `colnames<-`(c(
-        "ST", "chamber", "party", "gender", "birthdate", "lastName", "firstName"
+        "ST", "chamber", "party", "gender", "birthdate", "last.name", "first.name"
     )) %>% 
     mutate(ST = factor(ST)) %>% 
     mutate(chamber = factor(chamber, labels = c("House", "Senate"))) %>% 
@@ -118,46 +118,72 @@ congress <- read_csv("legislators-current.csv") %>%
 ## publication of the Congress table. GitHub reports Congress table was updated 31/07/2018.
 ##
 ## Gather counts of seated Representatives by state. Exclude DC b/c delegate is not apportioned.
-seatedReps <- congress %>% 
-    filter(chamber == "House" & ST != "DC") %>% 
+seated.reps <- congress %>% 
+    filter(chamber == "House") %>% 
     group_by(ST) %>% 
-    summarise(seatsFilled = n())
+    summarise(seats.filled = n())
 
-## Read in apportionments from 2010 Census, match to seatedReps, & tally mismatches
+## Read in apportionments from 2010 Census, match to seated.reps, & tally mismatches
 unfilled <- read_excel("ApportionmentPopulation2010.xls", skip = 11, n_max = 50,
-                            col_names = c("state", "pop", "_", "seatsApportioned",
+                            col_names = c("state", "pop", "_", "seats.apportioned",
                                           "-", "change")) %>% 
-    select(state, seatsApportioned) %>% 
+    select(state, seats.apportioned) %>% 
     merge(abbreviations, by = "state", sort = FALSE) %>% 
-    merge(seatedReps, by = "ST", sort = FALSE) %>% 
-    filter(seatsApportioned != seatsFilled)
+    merge(seated.reps, by = "ST", sort = FALSE) %>% 
+    filter(seats.apportioned != seats.filled)
 unfilled
 
 ## Add rows for vacant seats
 congress <- congress %>% 
     add_row(ST = "MI", chamber = "House", party = NA, gender = NA,
-            birthdate = NA, lastName = NA, firstName = NA) %>% 
+            birthdate = NA, last.name = NA, first.name = NA) %>% 
     add_row(ST = "NY", chamber = "House", party = NA, gender = NA,
-            birthdate = NA, lastName = NA, firstName = NA) %>% 
+            birthdate = NA, last.name = NA, first.name = NA) %>% 
     add_row(ST = "OH", chamber = "House", party = NA, gender = NA,
-            birthdate = NA, lastName = NA, firstName = NA) %>% 
+            birthdate = NA, last.name = NA, first.name = NA) %>% 
     add_row(ST = "OK", chamber = "House", party = NA, gender = NA,
-            birthdate = NA, lastName = NA, firstName = NA) %>% 
+            birthdate = NA, last.name = NA, first.name = NA) %>% 
     add_row(ST = "PA", chamber = "House", party = NA, gender = NA,
-            birthdate = NA, lastName = NA, firstName = NA) %>% 
+            birthdate = NA, last.name = NA, first.name = NA) %>% 
     add_row(ST = "PA", chamber = "House", party = NA, gender = NA,
-            birthdate = NA, lastName = NA, firstName = NA) 
+            birthdate = NA, last.name = NA, first.name = NA) 
 
 
 
-
-
-
+## Tallies each State's Congressional delegation by party & chamber
+congress.tallies <- congress               # Create initial table to collapse
+congress.tallies <- congress.tallies %>% 
+    group_by(ST) %>%                       # These two lines collapse the membership
+    summarise() %>%                        # table individual states.
+    left_join(congress.tallies %>% 
+              filter(chamber == "House", party == "Republican") %>% 
+              group_by(ST) %>% 
+              summarise(house.repubs = n())
+              ) %>% 
+    left_join(congress.tallies %>% 
+              filter(chamber == "House", party == "Democrat") %>% 
+              group_by(ST) %>% 
+              summarise(house.dems = n())
+              ) %>% 
+    left_join(congress.tallies %>% 
+              filter(chamber == "House", is.na(party)) %>% 
+              group_by(ST) %>% 
+              summarise(house.vacant = n())
+              ) %>% 
+    left_join(congress.tallies %>% 
+              filter(chamber == "Senate", party == "Republican") %>% 
+              group_by(ST) %>% 
+              summarise(senate.repubs = n())
+              ) %>% 
+    left_join(congress.tallies %>% 
+              filter(chamber == "Senate", party == "Democrat") %>% 
+              group_by(ST) %>% 
+              summarise(senate.dems = n())
+              ) %>% 
+    left_join(congress.tallies %>% 
+              filter(chamber == "Senate", party == "Independent") %>% 
+              group_by(ST) %>% 
+              summarise(senate.inds = n())
+              )
+congress.tallies <- replace(congress.tallies, is.na(congress.tallies), 0)
  
-# reps <- congress %>% 
-#     filter(chamber == "House") %>% 
-#     group_by(state) %>% 
-#     summarize(representaives = n()) %>% 
-#     ungroup()
-
-
