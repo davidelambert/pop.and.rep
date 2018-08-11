@@ -79,3 +79,15 @@ electoralCollege <- electoralCollege %>%
     mutate(pctElectors = `electors`/.[[1,2]])
 
 
+
+## 115th Congress make up and party affiliation
+## sourced from OpenDataSoft
+## URL: https://public.opendatasoft.com/explore/dataset/us-115th-congress-members/export/
+
+congress <- read_delim("us-115th-congress-members.csv", delim = ";", skip = 1,
+                       col_names = c(
+                           "state", "stateCode", "districtCode", "name", "chamber", "party"
+                       )
+            ) %>% 
+    mutate(chamber = factor(chamber, labels = c("House", "Senate"))) %>% 
+    mutate(party = as_factor(party, labels = c("R", "D", "I")))
