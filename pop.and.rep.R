@@ -78,16 +78,43 @@ electoralCollege$electors[[1]] <- 538L
 electoralCollege <- electoralCollege %>% 
     mutate(pctElectors = `electors`/.[[1,2]])
 
-
-
-## 115th Congress make up and party affiliation
-## sourced from OpenDataSoft
-## URL: https://public.opendatasoft.com/explore/dataset/us-115th-congress-members/export/
-
-congress <- read_delim("us-115th-congress-members.csv", delim = ";", skip = 1,
-                       col_names = c(
-                           "state", "stateCode", "districtCode", "name", "chamber", "party"
-                       )
-            ) %>% 
+## Redone Congress tibble w/ cleaner source dataset
+## sourced from "unitedstates" GitHub collective account,
+## URL: https://github.com/unitedstates/congress-legislators
+##
+congress <- read_csv("legislators-current.csv") %>% 
+    select(state, type, party, gender, birthday, last_name, first_name) %>% 
+    `colnames<-`(c(
+        "ST", "chamber", "party", "gender", "birthdate", "lastName", "firstName"
+    )) %>% 
     mutate(chamber = factor(chamber, labels = c("House", "Senate"))) %>% 
-    mutate(party = as_factor(party, labels = c("R", "D", "I")))
+    mutate(party = factor(party)) %>% 
+    mutate(gender = factor(gender))
+
+
+# ## 115th Congress make up and party affiliation
+# ## sourced from OpenDataSoft
+# ## URL: https://public.opendatasoft.com/explore/dataset/us-115th-congress-members/export/
+# ## Dropped URL & GIS data before import
+# congress <- read_delim("us-115th-congress-members.csv", delim = ";", skip = 1,
+#                        col_names = c(
+#                            "state", "stateCode", "districtCode", "name", "chamber", "party"
+#                        )
+#             ) %>% 
+#     mutate(chamber = factor(chamber, labels = c("House", "Senate"))) %>% 
+#     mutate(party = factor(party)) %>% 
+#     filter(state != "American Samoa" &
+#                state != "Guam" &
+#                state != "Northern Mariana Islands" &
+#                state != "Puerto Rico" &
+#                state != "Virgin Islands"
+#             )
+# 
+# 
+# reps <- congress %>% 
+#     filter(chamber == "House") %>% 
+#     group_by(state) %>% 
+#     summarize(representaives = n()) %>% 
+#     ungroup()
+
+
