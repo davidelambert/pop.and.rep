@@ -1,4 +1,3 @@
-library(AER)
 library(tidyverse)
 library(readxl)
 
@@ -150,40 +149,66 @@ congress <- congress %>%
 
 
 
-## Tallies each State's Congressional delegation by party & chamber
-congress.tallies <- congress               # Create initial table to collapse
+## Tallies each State's Congressional delegation by party & chamber.
+## First line create table to reference in subsequent left_join() commands.
+congress.tallies <- congress               
 congress.tallies <- congress.tallies %>% 
     group_by(ST) %>%                       # These two lines collapse the membership
     summarise() %>%                        # table individual states.
     left_join(congress.tallies %>% 
-              filter(chamber == "House", party == "Republican") %>% 
-              group_by(ST) %>% 
-              summarise(house.repubs = n())
-              ) %>% 
+        filter(chamber == "House", party == "Republican") %>% 
+        group_by(ST) %>% 
+        summarise(house.republicans = n())
+        ) %>% 
     left_join(congress.tallies %>% 
-              filter(chamber == "House", party == "Democrat") %>% 
-              group_by(ST) %>% 
-              summarise(house.dems = n())
-              ) %>% 
+        filter(chamber == "House", party == "Democrat") %>% 
+        group_by(ST) %>% 
+        summarise(house.democrats = n())
+        ) %>% 
     left_join(congress.tallies %>% 
-              filter(chamber == "House", is.na(party)) %>% 
-              group_by(ST) %>% 
-              summarise(house.vacant = n())
-              ) %>% 
+        filter(chamber == "House", is.na(party)) %>% 
+        group_by(ST) %>% 
+        summarise(house.vacancies = n())
+        ) %>% 
     left_join(congress.tallies %>% 
-              filter(chamber == "Senate", party == "Republican") %>% 
-              group_by(ST) %>% 
-              summarise(senate.repubs = n())
-              ) %>% 
+        filter(chamber == "Senate", party == "Republican") %>% 
+        group_by(ST) %>% 
+        summarise(senate.republicans = n())
+        ) %>% 
     left_join(congress.tallies %>% 
-              filter(chamber == "Senate", party == "Democrat") %>% 
-              group_by(ST) %>% 
-              summarise(senate.dems = n())
-              ) %>% 
+        filter(chamber == "Senate", party == "Democrat") %>% 
+        group_by(ST) %>% 
+        summarise(senate.democrats = n())
+        ) %>% 
     left_join(congress.tallies %>% 
-              filter(chamber == "Senate", party == "Independent") %>% 
-              group_by(ST) %>% 
-              summarise(senate.inds = n())
-              )
+        filter(chamber == "Senate", party == "Independent") %>% 
+        group_by(ST) %>% 
+        summarise(senate.independents = n())
+        ) %>% 
+    left_join(congress.tallies %>% 
+        filter(chamber == "House", gender == "F") %>% 
+        group_by(ST) %>% 
+        summarise(house.women = n())
+        ) %>% 
+    left_join(congress.tallies %>% 
+        filter(chamber == "Senate", gender == "F") %>% 
+        group_by(ST) %>% 
+        summarise(senate.women = n())
+        )
 congress.tallies <- replace(congress.tallies, is.na(congress.tallies), 0)
- 
+
+## Add totals & fractions
+congress.tallies <- congress.tallies %>% 
+    mutate(total.house = house.republicans +
+                        house.democrats +
+                        house.vacancies
+          ) %>% 
+    mutate(total.delegation = total.house + 2) %>% 
+    mutate(total.republican.pct =
+               (house.republicans+senate.republicans)/total.delegation) %>% 
+    mutate(total.democrat.pct =
+               (house.democrats+senate.democrats)/total.delegation) %>% 
+    mutate(total.independent.pct =
+               (senate.independents)/total.delegation) %>% 
+    mutate(total.women =  house.women + senate.women) %>% 
+    mutate(total.women.pct = total.women/total.delegation)
