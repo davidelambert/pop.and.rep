@@ -256,7 +256,7 @@ by.division <- pop.and.rep %>%
                                 sum(senate.independents)),
               div.pct.gop = (sum(house.republicans) + sum(senate.republicans)) / 
                              sum(total.delegation) * 100,
-              div.pct.gop.senate = sum(senate.republicans),
+              div.pct.gop.senate = sum(senate.republicans) / div.prop.senate *100,
               div.pct.dem.ind = (sum(house.democrats) +
                                  sum(senate.democrats) +
                                  sum(senate.independents)) / 
@@ -269,13 +269,8 @@ by.division <- pop.and.rep %>%
 
 ## EXPORT ====================================================================================
 
-save(pop.and.rep, congress, by.division, file = "pop.and.rep.Rdata")
+save(pop.and.rep, congress, by.division, file = "pop.and.rep.Rda")
 
-saveRDS(pop.and.rep, "pop.and.rep.rds")
 write_csv(pop.and.rep, "pop.and.rep.csv")
-
-saveRDS(congress, "congress.full.rds")
 write_csv(congress, "congress.full.csv")
-
-saveRDS(by.division, "by.division.rds")
 write_csv(by.division, "by.division.csv")

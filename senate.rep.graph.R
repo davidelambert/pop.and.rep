@@ -1,10 +1,11 @@
 library(tidyverse)
 
-load("pop.and.rep.Rdata")
+load("pop.and.rep.Rda")
 
 ## Force division labels onto multiple lines for legibility
 levels(by.division$division) <- gsub(" ", "\n", levels(by.division$division))
 levels(by.division$division) <- gsub("-", "\n", levels(by.division$division))
+
 
 ggplot(by.division, aes(x = division)) +
     #################################################################
@@ -15,7 +16,7 @@ ggplot(by.division, aes(x = division)) +
              width = 0.28, position = position_nudge(x = -0.28)) +
     geom_text(aes(y = div.pct.pop, label = round(div.pct.pop, 1)),
               fontface = "bold", color = "white", size = 3, angle = 90,
-              hjust = 1.5, position = position_nudge(x = -0.32)) +
+              position = position_nudge(x = -0.32, y = -1)) +
     #################################################################
     ##
     ## Electoral representation
@@ -24,7 +25,7 @@ ggplot(by.division, aes(x = division)) +
              width = 0.28, position = position_nudge(x = 0)) +
     geom_text(aes(y = div.pct.electors, label = round(div.pct.electors, 1)),
               fontface = "bold", color = "white", size = 3, angle = 90,
-              hjust = 1.5, position = position_nudge(x = -0.03)) +
+              position = position_nudge(x = -0.03, y = -1)) +
     #################################################################
     ##
     ## Senate representation
@@ -33,42 +34,42 @@ ggplot(by.division, aes(x = division)) +
              width = 0.28, position = position_nudge(x = .28)) +
     geom_text(aes(y = div.prop.senate, label = div.prop.senate),
               fontface = "bold", color = "white", size = 3, angle = 90,
-              hjust = 2, position = position_nudge(x = 0.24)) +
+              position = position_nudge(x = 0.24, y = -1)) +
     #################################################################
     ##
     ## Percent GOP labels
     ##
     annotate("text", x = 1, y = -0.75, color = "red2", hjust = 0.5, fontface = "bold",
-             size = 3, label = round(by.division$div.pct.gop[1], 1)) +
+             size = 3.5, label = round(by.division$div.pct.gop.senate[1], 1)) +
     annotate("text", x = 2, y = -0.75, color = "red2", hjust = 0.5, fontface = "bold",
-             size = 3, label = round(by.division$div.pct.gop[2], 1)) +
+             size = 3.5, label = round(by.division$div.pct.gop.senate[2], 1)) +
     annotate("text", x = 3, y = -0.75, color = "red2", hjust = 0.5, fontface = "bold",
-             size = 3, label = round(by.division$div.pct.gop[3], 1)) +
+             size = 3.5, label = round(by.division$div.pct.gop.senate[3.5], 1)) +
     annotate("text", x = 4, y = -0.75, color = "red2", hjust = 0.5, fontface = "bold",
-             size = 3, label = round(by.division$div.pct.gop[4], 1)) +
+             size = 3.5, label = round(by.division$div.pct.gop.senate[4], 1)) +
     annotate("text", x = 5, y = -0.75, color = "red2", hjust = 0.5, fontface = "bold",
-             size = 3, label = round(by.division$div.pct.gop[5], 1)) +
+             size = 3.5, label = round(by.division$div.pct.gop.senate[5], 1)) +
     annotate("text", x = 6, y = -0.75, color = "red2", hjust = 0.5, fontface = "bold",
-             size = 3, label = round(by.division$div.pct.gop[6], 1)) +
+             size = 3.5, label = round(by.division$div.pct.gop.senate[6], 1)) +
     annotate("text", x = 7, y = -0.75, color = "red2", hjust = 0.5, fontface = "bold",
-             size = 3, label = round(by.division$div.pct.gop[7], 1)) +
+             size = 3.5, label = round(by.division$div.pct.gop.senate[7], 1)) +
     annotate("text", x = 8, y = -0.75, color = "red2", hjust = 0.5, fontface = "bold",
-             size = 3, label = round(by.division$div.pct.gop[8], 1)) +
+             size = 3.5, label = round(by.division$div.pct.gop.senate[8], 1)) +
     annotate("text", x = 9, y = -0.75, color = "red2", hjust = 0.5, fontface = "bold",
-             size = 3, label = round(by.division$div.pct.gop[9], 1)) +
+             size = 3.5, label = round(by.division$div.pct.gop.senate[9], 1)) +
     #################################################################
     ##
     ## Legend
     ##
-    annotate("label", x = 1.25, y = 18.5, fill = "dodgerblue4", label = "% Population", 
-             size = 3, fontface = "bold", color = "white",
-             label.padding = unit(0.4, "lines"), label.r = unit(0, "lines")) +
-    annotate("label", x = 2.5, y = 18.5, fill = "royalblue3", label = "% Electors",
-             size = 3, fontface = "bold", color = "white",
-             label.padding = unit(0.4, "lines"), label.r = unit(0, "lines")) +
-    annotate("label", x = 3.7, y = 18.5, fill = "steelblue3", label = "% Senators",
-             size = 3, fontface = "bold", color = "white",
-             label.padding = unit(0.4, "lines"), label.r = unit(0, "lines")) +
+    geom_tile(aes(x = 1.25, y = 18.4, width = 1.25, height = 1.2), fill = "dodgerblue4") +
+    annotate("text", x = 1.25, y = 18.5, label = "% Population",
+             size = 3, fontface = "bold", color = "white") +
+    geom_tile(aes(x = 2.5, y = 18.4, width = 1.25, height = 1.2), fill = "royalblue3") +
+    annotate("text", x = 2.5, y = 18.5, label = "% Electors",
+             size = 3, fontface = "bold", color = "white") +
+    geom_tile(aes(x = 3.75, y = 18.4, width = 1.25, height = 1.2), fill = "steelblue3") +
+    annotate("text", x = 3.75, y = 18.5, label = "% Senators",
+             size = 3, fontface = "bold", color = "white") +
     annotate("text", x = 2.5, y = 17, label = "% GOP Senators",
              size = 3.5, fontface = "bold", color = "red2") +
     #################################################################
@@ -76,6 +77,6 @@ ggplot(by.division, aes(x = division)) +
     ## Theme adjustments
     ##
     xlab("") + ylab("") + 
-    theme(panel.grid.major.x = element_blank())
-    
-    
+    theme(panel.grid.major.x = element_blank(),
+          axis.text.x = element_text(face = "bold", lineheight = 1.1)
+          )
