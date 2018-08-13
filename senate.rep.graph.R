@@ -1,10 +1,16 @@
 library(tidyverse)
+library(png)
+library(grid)
 
 load("pop.and.rep.Rda")
 
 ## Force division labels onto multiple lines for legibility
 levels(by.division$division) <- gsub(" ", "\n", levels(by.division$division))
 levels(by.division$division) <- gsub("-", "\n", levels(by.division$division))
+
+## PNG import for placement
+image <- readPNG("CensusDivisions.png")
+map <- rasterGrob(image, interpolate = TRUE)
 
 
 ggplot(by.division, aes(x = division)) +
@@ -72,6 +78,11 @@ ggplot(by.division, aes(x = division)) +
              size = 3, fontface = "bold", color = "white") +
     annotate("text", x = 2.5, y = 17, label = "% GOP Senators",
              size = 3.5, fontface = "bold", color = "red2") +
+    #################################################################
+    ##
+    ## Map insert
+    ##
+    annotation_custom(map, xmin = 6, xmax = 8, ymin = 14.3, ymax = 19.8) +
     #################################################################
     ##
     ## Theme adjustments
