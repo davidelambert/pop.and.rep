@@ -225,9 +225,10 @@ congress.tallies <- congress.tallies %>%
 
 
 
-## MERGE =====================================================================================
+## MERGE AND CLEAN =========================================================================
 ##
-## Merge tables into grand table for analysis
+## Merge tables into grand table for analysis.
+## Clear environment of temporary & unnecessary tables.
 ##
 pop.and.rep <- population.small %>% 
     merge(congress.tallies, by = "ST", sort = FALSE, all = TRUE) %>% 
@@ -235,12 +236,46 @@ pop.and.rep <- population.small %>%
 ## Reorder for relevance
 pop.and.rep <- pop.and.rep[c(1:4,14,15,30,31,25,27,28,26,29,5:13,16:24)]
 
+remove(abbreviations, congress.tallies, electoral.college, population,
+       population.small, seated.reps, unfilled)
+
+
+
+## GROUPS ===================================================================================
+## 
+## Create grouped tables for descriptive statistics, graphics, exploratory analysis, etc.
+##
+by.division <- pop.and.rep %>% 
+    filter(ST != "DC", !is.na(division)) %>% 
+    group_by(division) %>% 
+    summarise(div.pop = sum(pop.2017),
+              div.pct.pop = sum(pct.pop.2017) * 100,
+              div.pct.electors = sum(electors) / 538 * 100,
+              div.prop.senate = (sum(senate.republicans) +
+                                sum(senate.democrats) +
+                                sum(senate.independents)),
+              div.pct.gop = (sum(house.republicans) + sum(senate.republicans)) / 
+                             sum(total.delegation) * 100,
+              div.pct.gop.senate = sum(senate.republicans),
+              div.pct.dem.ind = (sum(house.democrats) +
+                                 sum(senate.democrats) +
+                                 sum(senate.independents)) / 
+                                 sum(total.delegation) * 100,
+              div.pct.women = sum(total.women) / sum(total.delegation) * 100
+              )
+
+
 
 
 ## EXPORT ====================================================================================
+
+save(pop.and.rep, congress, by.division, file = "pop.and.rep.Rdata")
 
 saveRDS(pop.and.rep, "pop.and.rep.rds")
 write_csv(pop.and.rep, "pop.and.rep.csv")
 
 saveRDS(congress, "congress.full.rds")
 write_csv(congress, "congress.full.csv")
+
+saveRDS(by.division, "by.division.rds")
+write_csv(by.division, "by.division.csv")
