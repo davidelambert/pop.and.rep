@@ -46,17 +46,45 @@ population <- read_csv("nst-est2017-alldata.csv",
     mutate(state = name) %>% 
     merge(abbreviations, by = "state", sort = FALSE)
 
+## Adding columns for OMB's "Standard Federal Regions" & BEA's economic regions.
+## Standard Federal Regions are  defined in OMB Circular A-105 (1974).
+## BEA regions are defined at: https://www.bea.gov/regional/docs/regions.cfm (Acc. 13/08/18).
+## Included because they may represent more culturally significant geographical divisions
+## than the Census Divisions included in the source population dataset.
+##
+regions <- read_csv("regions.csv") %>% 
+    mutate(omb.region = factor(omb.region, labels = c(
+        "New England",
+        "NY/NJ",
+        "Mid Atlantic",
+        "South East",
+        "Rust Belt",
+        "South Central",
+        "Prarie",
+        "Mountain West",
+        "Southwest Pacific",
+        "Pacific Northwest"
+    ))) %>% 
+    mutate(bea.region = factor(bea.region, levels = c(
+        "New England",
+        "Mid East",
+        "Great Lakes",
+        "Plains",
+        "South East",
+        "South West",
+        "Rocky Mtns",
+        "Far West"
+    )))
+population <- merge(population, regions, by = "ST", sort = FALSE)
 
 ## drop birth, death, immigration, etc. columns from above
 ##
 population.small <- population %>% 
-    select(state, ST, region, division, census2010pop,
+    select(state, ST, region, division, omb.region, bea.region, census2010pop,
            estimatesbase2010, starts_with("popestimate")
            ) %>% 
     `colnames<-`(gsub("popestimate", "pop.", colnames(.))) %>% # shorten yearly est. column names
     mutate(pct.pop.2017 = `pop.2017`/.[[1,14]]) 
-
-
 
 
 
@@ -234,10 +262,10 @@ pop.and.rep <- population.small %>%
     merge(congress.tallies, by = "ST", sort = FALSE, all = TRUE) %>% 
     merge(electoral.college, by = "state", sort = FALSE, all = TRUE)
 ## Reorder for relevance
-pop.and.rep <- pop.and.rep[c(1:4,14,15,30,31,25,27,28,26,29,5:13,16:24)]
+pop.and.rep <- pop.and.rep[c(1:6,16,17,32,33,27,29,30,28,31,7:15,18:26)]
 
-remove(abbreviations, congress.tallies, electoral.college, population,
-       population.small, seated.reps, unfilled)
+remove(abbreviations, congress.tallies, electoral.college, regions,
+       population, population.small, seated.reps, unfilled)
 
 
 
@@ -264,12 +292,50 @@ by.division <- pop.and.rep %>%
               div.pct.women = sum(total.women) / sum(total.delegation) * 100
               )
 
+by.bea <- pop.and.rep %>% 
+    filter(ST != "DC", !is.na(bea.region)) %>% 
+    group_by(bea.region) %>% 
+    summarise(bea.pop = sum(pop.2017),
+              bea.pct.pop = sum(pct.pop.2017) * 100,
+              bea.pct.electors = sum(electors) / 538 * 100,
+              bea.prop.senate = (sum(senate.republicans) +
+                                sum(senate.democrats) +
+                                sum(senate.independents)),
+              bea.pct.gop = (sum(house.republicans) + sum(senate.republicans)) / 
+                             sum(total.delegation) * 100,
+              bea.pct.gop.senate = sum(senate.republicans) / bea.prop.senate *100,
+              bea.pct.dem.ind = (sum(house.democrats) +
+                                 sum(senate.democrats) +
+                                 sum(senate.independents)) / 
+                                 sum(total.delegation) * 100,
+              bea.pct.women = sum(total.women) / sum(total.delegation) * 100
+              )
+
+by.omb <- pop.and.rep %>% 
+    filter(ST != "DC", !is.na(omb.region)) %>% 
+    group_by(omb.region) %>% 
+    summarise(omb.pop = sum(pop.2017),
+              omb.pct.pop = sum(pct.pop.2017) * 100,
+              omb.pct.electors = sum(electors) / 538 * 100,
+              omb.prop.senate = (sum(senate.republicans) +
+                                sum(senate.democrats) +
+                                sum(senate.independents)),
+              omb.pct.gop = (sum(house.republicans) + sum(senate.republicans)) / 
+                             sum(total.delegation) * 100,
+              omb.pct.gop.senate = sum(senate.republicans) / omb.prop.senate *100,
+              omb.pct.dem.ind = (sum(house.democrats) +
+                                 sum(senate.democrats) +
+                                 sum(senate.independents)) / 
+                                 sum(total.delegation) * 100,
+              omb.pct.women = sum(total.women) / sum(total.delegation) * 100
+              )
+
 
 
 
 ## EXPORT ====================================================================================
 
-save(pop.and.rep, congress, by.division, file = "pop.and.rep.Rda")
+save(pop.and.rep, congress, by.division, by.bea, by.omb, file = "pop.and.rep.Rda")
 
 write_csv(pop.and.rep, "pop.and.rep.csv")
 write_csv(congress, "congress.full.csv")
