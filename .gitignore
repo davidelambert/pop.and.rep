@@ -3,3 +3,8 @@
 ~*.xlsx
 us_regdiv.pdf
 *.svg
+
+## Directories
+graphics/
+bea_shapefiles/
+cb_2017_us_region_500k/
