@@ -89,6 +89,7 @@ levels(regions.map$group) <- list("New England.1" = "Connecticut.1" ,
               "Mid East.9" = "New York.3" ,
               "Mid East.10" = "New York.4" ,
               "Mid East.11" = "Pennsylvania.1" ,
+              "Mid East.12" = "District of Columbia.1" ,
               "Great Lakes.1" = "Illinois.1" ,
               "Great Lakes.2" = "Indiana.1" ,
               "Great Lakes.3" = "Michigan.1" ,
@@ -201,3 +202,31 @@ levels(regions.map$group) <- list("New England.1" = "Connecticut.1" ,
               "Far West.48" = "Washington.2" ,
               "Far West.49" = "Washington.3"
               )
+
+regions.map <- within(regions.map, {
+    id[ id == "maine" | id == "new hampshire" | id == "vermont" |
+        id == "massachusetts" | id == "rhode island" | id == "connecticut"
+    ] <- "new england"
+    id[ id == "new york" | id == "new jersey" | id == "pennsylvania" |
+        id == "delware" | id == "maryland" | id == "district of columbia"
+    ] <- "mid east"
+    id[ id == "ohio" | id == "indiana" | id == "illinois" |
+        id == "michigan" | id == "wisconsin"
+    ] <- "great lakes"
+    id[ id == "minnesota" | id == "iowa" | id == "missouri" | id == "north dakota" | 
+        id == "south dakota" | id == "nebreaska" | id == "kansas"
+    ] <- "plains"
+    id[ id == "virgina" | id == "west virgina" | id == "kentucky" |
+        id == "north carolina" | id == "tennessee" | id == "south carolina" |
+        id == "georgia" | id == "alabama" | id == "mississippi" |
+        id == "arkansas" | id == "louisiana" | id == "florida"
+    ] <- "south east"
+    id[ id == "oklahoma" | id == "texas" | id == "new mexico" | id == "arizona"
+    ] <- "south west"
+    id[ id == "montana" | id == "wyoming" | id == "colorado" |
+        id == "idaho" | id == "utah"
+    ] <- "rocky mtns"
+    id[ id == "washington" | id == "oregon" | id == "nevada" |
+        id == "california" | id == "alaska" | id == "hawaii"
+    ] <- "far west"
+})

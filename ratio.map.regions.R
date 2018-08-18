@@ -1,7 +1,7 @@
 library(tidyverse)
 library(fiftystater)
 
-pop.and.rep <- read_csv("pop.and.rep.csv")
+load("pop.and.rep.Rda")
 data("fifty_states")
 glimpse(fifty_states)
 
@@ -26,7 +26,7 @@ ggplot(fifty_states) +
                      fill = region.senate.ratio), color = "black") +
     scale_fill_gradientn("", colors = c("plum2", "orchid2", 
                                         "mediumorchid2", "darkorchid2")) +
-    coord_quickmap() +
+    coord_map(projection = "eisenlohr") + # best alternatives: vandergrinten, aitoff
     labs(x = "", y = "", title = "Senate Representation to Population Ratio") +
     theme_void() +
     theme(legend.position = c(0.92, 0.27),
