@@ -22,7 +22,8 @@ fifty_states <- fifty_states %>%
     left_join(pop.and.rep, by = "id")
 
 ggplot(fifty_states) +
-    geom_polygon(aes(group = group, x = long, y = lat, fill = region.senate.ratio)) +
+    geom_polygon(aes(group = group, x = long, y = lat,
+                     fill = region.senate.ratio), color = "black") +
     scale_fill_gradientn("", colors = c("plum2", "orchid2", 
                                         "mediumorchid2", "darkorchid2")) +
     coord_quickmap() +
