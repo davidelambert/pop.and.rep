@@ -3,6 +3,7 @@
 ~*.xlsx
 us_regdiv.pdf
 *.svg
+*.png
 
 ## Directories
 graphics/

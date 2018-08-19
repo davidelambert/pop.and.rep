@@ -32,3 +32,4 @@ ggplot(fifty_states) +
     theme(legend.position = c(0.92, 0.27),
           plot.title = element_text(hjust = 0.5)
           )
+
