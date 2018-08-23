@@ -32,6 +32,10 @@ pop.and.rep <- pop.and.rep %>%
     ungroup()
 
 
+fifty_states <- fifty_states %>% 
+    filter(id != "district of columbia") %>% 
+    left_join(pop.and.rep, by = "id")
+
 
 
 
@@ -39,26 +43,28 @@ pop.and.rep <- pop.and.rep %>%
 
 ggplot(pop.and.rep, aes(y = state.senate.ratio, x = reorder(ST, state.senate.ratio))) +
     geom_col(aes(fill = state.senate.ratio), width = 0.8) +
-    geom_hline(yintercept = 1) +
+    geom_hline(yintercept = 1, linetype = "dashed") +
     coord_flip() +
     scale_y_continuous(breaks = seq(0,12,2)) +
-    scale_fill_viridis_c("", breaks = c(1,4,7,10), option = "plasma", direction = -1) +
+    scale_fill_viridis_c("", breaks = c(1,10), labels = c("1:1", "10:1"),
+                         option = "plasma", direction = -1) +
     labs(x = "", y = "") +
-    guides(fill = FALSE) +
     theme_bw() +
     theme(panel.grid.minor.x = element_line(linetype = "dashed"),
           panel.grid.major.y = element_blank(),
-          axis.text.y = element_text(size = 7)
+          axis.text.y = element_text(size = 7),
+          legend.direction = "horizontal",
+          legend.position = c(0.655, 0.1),
+          legend.key.width = unit(36, "points"),
+          legend.key.height = unit(10, "points"),
+          legend.background = element_blank(),
+          legend.text = element_text(size = 10)
           )
 
 
 
 
 ## STATE MAP ================================================================================= 
-
-fifty_states <- fifty_states %>% 
-    filter(id != "district of columbia") %>% 
-    left_join(pop.and.rep, by = "id")
 
 ggplot(fifty_states) +
     geom_polygon(aes(group = group, x = long, y = lat, fill = state.senate.ratio)) +
@@ -67,7 +73,6 @@ ggplot(fifty_states) +
               xlim = c(-124, -68)) + 
     labs(x = "", y = "") +
     guides(fill = FALSE) +
-    theme_bw() +
     theme(axis.text = element_blank(),
           axis.ticks = element_blank()
           )
